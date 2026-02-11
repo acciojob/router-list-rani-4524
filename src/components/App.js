@@ -1,7 +1,7 @@
 
 import React from "react";
 import './../styles/App.css';
-import {  Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch  } from "react-router-dom";
 import ItemList from "./ItemList";
 import ItemDetails from "./ItemDetails";
 
@@ -17,10 +17,12 @@ const App = () => {
     <div>
       {/* Do not remove the main div */}
      
-      <Routes>
-        <Route path="/" element={<ItemList  items={items}/>} />
-        <Route path="/items/:id" element={<ItemDetails items={items}/>} />
-      </Routes>
+     <BrowserRouter>
+      <Switch >
+          <Route path="/" element={<ItemList  items={items}/>} />
+          <Route path="/items/:id" element={<ItemDetails items={items}/>} />
+        </Switch >
+    </BrowserRouter>
     </div>
   )
 }
