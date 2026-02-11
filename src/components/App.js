@@ -1,13 +1,29 @@
 
 import React from "react";
 import './../styles/App.css';
+import {  Route, Routes } from "react-router-dom";
+import ItemList from "./ItemList";
+import ItemDetails from "./ItemDetails";
 
 const App = () => {
+
+  const items = [
+    { id: 1, name: "Item 1", description: "Description for Item 1" },
+    { id: 2, name: "Item 2", description: "Description for Item 2" },
+    { id: 3, name: "Item 3", description: "Description for Item 3" }
+  ];
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      {/* Do not remove the main div */}
+     
+      <Routes>
+        <Route path="/" element={<ItemList  items={items}/>} />
+        <Route path="/items/:id" element={<ItemDetails items={items}/>} />
+      </Routes>
     </div>
   )
 }
 
 export default App
+
